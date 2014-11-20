@@ -15,7 +15,7 @@ int motorPin = 12;
 
 // Initialises servo.
 Servo jeffServo;
-int pos = 0;
+int pos = 90;
 
 void setup() {
 
@@ -25,7 +25,10 @@ void setup() {
 	pinMode(motorPin, OUTPUT);
 	digitalWrite(motorPin, LOW);
 
+	// Aligns the front wheels to the centre.
 	jeffServo.attach(13);
+	jeffServo.write(pos);
+	delay(30);
 
 	// Begins the bridge and sets the server to listen locally.
 	Bridge.begin();
@@ -37,20 +40,34 @@ void setup() {
 
 /* ---------- Functions ---------- */
 
-// Turns the front wheels to the right.
-void turnRight(int *deg) {
+// Turns the front wheels to the left.
+int turnLeft(int *deg) {
 
-	jeffServo.write(pos);
-	delay(15);
+	int newPos = pos - *deg;
+
+	if (newPos >= 0) {
+		jeffServo.write(newPos);
+		delay(15);
+		return 1;
+	} else {
+		return 0;
+	}
 
 }
 
 
-// Turns the front wheels to the left.
-void turnLeft(int *deg) {
+// Turns the front wheels to the right.
+int turnRight(int *deg) {
 
-	jeffServo.write(pos);
-	delay(15);
+	int newPos = pos + *deg;
+
+	if (newPos <= 180) {
+		jeffServo.write(newPos);
+		delay(15);
+		return 1;
+	} else {
+		return 0;
+	}
 
 }
 
@@ -58,21 +75,33 @@ void turnLeft(int *deg) {
 // Handles the instruction sent.
 int response(String *cmd, int *arg) {
 
+	// Moves Jeff forwards.
 	if (*cmd == "fwd") {
+
 		digitalWrite(motorPin, HIGH);
 		delay(*arg);
 		digitalWrite(motorPin, LOW);
-	} else if (*cmd == "bwd") {
-		// Do backward stuff.
-	} else if (*cmd == "lft") {
-		turnLeft(arg);
-	} else if (*cmd == "rgt") {
-		turnRight(arg);
-	} else {
-		return 0;
-	}
+		return 1;
 
-	return 1;
+	// Moves Jeff backwards.
+	} else if (*cmd == "bwd") {
+
+		// Do backward stuff.
+		return 1;
+
+	// Turns Jeff's wheels left.
+	} else if (*cmd == "lft") {
+
+		return turnLeft(arg);
+
+	// Turns Jeff's wheels right.
+	} else if (*cmd == "rgt") {
+
+		return turnRight(arg);
+
+	}
+		
+	return 0;
 
 }
 
