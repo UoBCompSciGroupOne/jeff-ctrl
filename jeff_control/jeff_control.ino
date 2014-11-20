@@ -10,8 +10,8 @@
 
 // Initialises Arduino server and sets pins being used.
 YunServer server;
-int servoPin = 10;
-int motorPin = 11;
+int servoPin = 11;
+int motorPin = 12;
 
 // Initialises servo.
 Servo jeffServo;
@@ -24,6 +24,8 @@ void setup() {
 	digitalWrite(servoPin, LOW);
 	pinMode(motorPin, OUTPUT);
 	digitalWrite(motorPin, LOW);
+
+	jeffServo.attach(13);
 
 	// Begins the bridge and sets the server to listen locally.
 	Bridge.begin();
@@ -38,10 +40,8 @@ void setup() {
 // Turns the front wheels to the right.
 void turnRight(int *deg) {
 
-	for (pos = 0; pos <= *deg; pos++) {
-		jeffServo.write(pos);
-		delay(15);
-	}
+	jeffServo.write(pos);
+	delay(15);
 
 }
 
@@ -49,10 +49,8 @@ void turnRight(int *deg) {
 // Turns the front wheels to the left.
 void turnLeft(int *deg) {
 
-	for (pos = 0; pos <= *deg; pos--) {
-		jeffServo.write(pos);
-		delay(15);
-	}
+	jeffServo.write(pos);
+	delay(15);
 
 }
 
