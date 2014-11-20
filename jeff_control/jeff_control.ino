@@ -48,6 +48,7 @@ int turnLeft(int *deg) {
 	if (newPos >= 0) {
 		jeffServo.write(newPos);
 		delay(15);
+		pos = newPos;
 		return 1;
 	} else {
 		return 0;
@@ -64,6 +65,7 @@ int turnRight(int *deg) {
 	if (newPos <= 180) {
 		jeffServo.write(newPos);
 		delay(15);
+		pos = newPos;
 		return 1;
 	} else {
 		return 0;
