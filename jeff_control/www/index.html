@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="index.css">
+	<title>Light Up</title>
+	<script type="text/javascript" src="zepto.min.js"></script>
+	<script type="text/javascript" src="pincontrol.js"></script>
+</head>
+<body>
+	<div id="headline">
+		<h1>Jeff Control</h1>
+	</div>
+
+	<div id="pinstatus">
+		<h3>Status</h3>
+		<div id="message" style="margin: 1em 1em"></div>
+	</div>
+
+	<div id="ctrlbuttons">
+		<input type="button" id="fwdbutton" value="Forward" onclick="forward();" />
+		<input type="button" id="bwdbutton" value="Backward" onclick="backward();" />
+		<input type="button" id="leftbutton" value="Left" onclick="left();" />
+		<input type="button" id="rightbutton" value="Right" onclick="right();" />
+	</div>
+
+	<div id="argselection">
+	<select id="time">
+		<option value="1">1 sec</option>
+		<option value="2">2 secs</option>
+		<option value="3">3 secs</option>
+		<option value="4">4 secs</option>
+	</select>
+	<select id="deg">
+		<option value="15">15 degrees</option>
+		<option value="30">30 degrees</option>
+		<option value="45">45 degrees</option>
+		<option value="60">60 degrees</option>
+	</select>
+	</div>
+
+</body>
+</html>
