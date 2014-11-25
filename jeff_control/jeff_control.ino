@@ -3,32 +3,22 @@
 #include <Bridge.h>
 #include <YunServer.h>
 #include <YunClient.h>
-#include <Servo.h>
 
 
 /* ---------- Setup ---------- */
 
 // Initialises Arduino server and sets pins being used.
 YunServer server;
-int servoPin = 11;
-int motorPin = 12;
-
-// Initialises servo.
-Servo jeffServo;
-int pos = 90;
+int motorOne = 10;
+int motorTwo = 9;
 
 void setup() {
 
 	// Makes sure LED is off.
-	pinMode(servoPin, OUTPUT);
-	digitalWrite(servoPin, LOW);
-	pinMode(motorPin, OUTPUT);
-	digitalWrite(motorPin, LOW);
-
-	// Aligns the front wheels to the centre.
-	jeffServo.attach(13);
-	jeffServo.write(pos);
-	delay(30);
+	pinMode(motorOne, OUTPUT);
+	digitalWrite(motorOne, LOW);
+	pinMode(motorTwo, OUTPUT);
+	digitalWrite(motorTwo, LOW);
 
 	// Begins the bridge and sets the server to listen locally.
 	Bridge.begin();
@@ -40,66 +30,32 @@ void setup() {
 
 /* ---------- Functions ---------- */
 
-// Turns the front wheels to the left.
-int turnLeft(int *deg) {
-
-	int newPos = pos - *deg;
-
-	if (newPos >= 0) {
-		jeffServo.write(newPos);
-		delay(15);
-		pos = newPos;
-		return 1;
-	} else {
-		return 0;
-	}
-
-}
-
-
-// Turns the front wheels to the right.
-int turnRight(int *deg) {
-
-	int newPos = pos + *deg;
-
-	if (newPos <= 180) {
-		jeffServo.write(newPos);
-		delay(15);
-		pos = newPos;
-		return 1;
-	} else {
-		return 0;
-	}
-
-}
-
-
 // Handles the instruction sent.
 int response(String *cmd, int *arg) {
 
 	// Moves Jeff forwards.
 	if (*cmd == "fwd") {
 
-		digitalWrite(motorPin, HIGH);
+		digitalWrite(motorOne, HIGH);
+		digitalWrite(motorTwo, HIGH);
 		delay(*arg);
-		digitalWrite(motorPin, LOW);
+		digitalWrite(motorOne, LOW);
+		digitalWrite(motorTwo, LOW);
 		return 1;
 
-	// Moves Jeff backwards.
-	} else if (*cmd == "bwd") {
-
-		// Do backward stuff.
-		return 1;
-
-	// Turns Jeff's wheels left.
+	// Turns Jeff left.
 	} else if (*cmd == "lft") {
 
-		return turnLeft(arg);
+		digitalWrite(motorOne, HIGH);
+		delay(*arg);
+		digitalWrite(motorOne, LOW);
 
-	// Turns Jeff's wheels right.
+	// Turns Jeff right.
 	} else if (*cmd == "rgt") {
 
-		return turnRight(arg);
+		digitalWrite(motorTwo, HIGH);
+		delay(*arg);
+		digitalWrite(motorTwo, LOW);
 
 	}
 		
