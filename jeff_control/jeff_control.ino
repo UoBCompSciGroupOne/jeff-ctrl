@@ -9,16 +9,28 @@
 
 // Initialises Arduino server and sets pins being used.
 YunServer server;
-int motorOne = 10;
-int motorTwo = 9;
+// Motor control.
+const int controlPin1 = 9;
+const int controlPin2 = 10;
+const int controlPin3 = 11;
+const int controlPin4 = 12;
+// Speed control.
+const int enablePin = 3;
+
+// Sets the default speed.
+int motorSpeed = 200;
 
 void setup() {
 
-	// Makes sure LED is off.
-	pinMode(motorOne, OUTPUT);
-	digitalWrite(motorOne, LOW);
-	pinMode(motorTwo, OUTPUT);
-	digitalWrite(motorTwo, LOW);
+	// Sets motor control pins.
+	pinMode(controlPin1, OUTPUT);
+	pinMode(controlPin2, OUTPUT);
+	pinMode(controlPin3, OUTPUT);
+	pinMode(controlPin4, OUTPUT);
+
+	// Sets the speed control pin.
+	pinMode(enablePin, OUTPUT);
+	digitalWrite(enablePin, LOW);
 
 	// Begins the bridge and sets the server to listen locally.
 	Bridge.begin();
@@ -30,33 +42,77 @@ void setup() {
 
 /* ---------- Functions ---------- */
 
+// Moves Jeff forwards.
+void forward(int *time) {
+
+	digitalWrite(controlPin1, HIGH); 
+	digitalWrite(controlPin2, LOW);
+	digitalWrite(controlPin3, HIGH);  
+	digitalWrite(controlPin4, LOW);
+	analogWrite(enablePin, motorSpeed);
+
+	delay(*time);
+
+}
+
+
+// Moves Jeff backwards.
+void backward(int *time) {
+
+	digitalWrite(controlPin1, LOW);
+	digitalWrite(controlPin2, HIGH);
+	digitalWrite(controlPin3, LOW);  
+	digitalWrite(controlPin4, HIGH);   
+	analogWrite(enablePin, motorSpeed);
+
+	delay(*time);
+
+}
+
+
+// Turns Jeff left.
+void left(int *time) {
+
+	digitalWrite(controlPin1, HIGH);
+	digitalWrite(controlPin2, LOW);
+	digitalWrite(controlPin3, LOW);  
+	digitalWrite(controlPin4, HIGH);   
+	analogWrite(enablePin, motorSpeed);
+
+	delay(*time);
+
+}
+
+
+// Turns Jeff right.
+void right(int *time) {
+
+	digitalWrite(controlPin1, LOW);
+	digitalWrite(controlPin2, HIGH);
+	digitalWrite(controlPin3, HIGH);  
+	digitalWrite(controlPin4, LOW);   
+	analogWrite(enablePin, motorSpeed);
+
+	delay(*time);
+
+}
+
+
 // Handles the instruction sent.
-int response(String *cmd, int *arg) {
+int response(String *cmd, int *time) {
 
-	// Moves Jeff forwards.
 	if (*cmd == "fwd") {
-
-		digitalWrite(motorOne, HIGH);
-		digitalWrite(motorTwo, HIGH);
-		delay(*arg);
-		digitalWrite(motorOne, LOW);
-		digitalWrite(motorTwo, LOW);
+		forward(time);
 		return 1;
-
-	// Turns Jeff left.
+	} else if (*cmd == "bwd") {
+		backward(time);
+		return 1;
 	} else if (*cmd == "lft") {
-
-		digitalWrite(motorOne, HIGH);
-		delay(*arg);
-		digitalWrite(motorOne, LOW);
-
-	// Turns Jeff right.
+		left(time);
+		return 1;
 	} else if (*cmd == "rgt") {
-
-		digitalWrite(motorTwo, HIGH);
-		delay(*arg);
-		digitalWrite(motorTwo, LOW);
-
+		right(time);
+		return 1;
 	}
 		
 	return 0;
@@ -85,6 +141,7 @@ void loop() {
 		// Deals with the command.
 		int success = response(cmd, &arg);
 
+		// Returns response to user.
 		if (success) {
 			client.print("DONE");
 		} else {
