@@ -12,7 +12,7 @@
 	font-family: HelveticaNeue, Verdana, Arial, sans-serif;
 }
 
-#fwdbutton, #leftbutton, #rightbutton {
+#fwdbutton, #bwdbutton, #leftbutton, #rightbutton {
 	padding: 20px 20px;
 	color: #5CB8E6;
 	border: 1px solid #5CB8E6;
@@ -20,12 +20,12 @@
 	background: #ffffff;
 }
 
-#fwdbutton:hover, #leftbutton:hover, #rightbutton:hover {
+#fwdbutton:hover, #bwdbutton:hover, #leftbutton:hover, #rightbutton:hover {
 	color: #ffffff;
 	background: #5CB8E6;
 }
 
-#fwdbutton:active, #leftbutton:active, #rightbutton:active {
+#fwdbutton:active, #bwdbutton:active, #leftbutton:active, #rightbutton:active {
 	background: #ff8833;
 }
 
