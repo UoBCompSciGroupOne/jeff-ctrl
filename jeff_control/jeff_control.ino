@@ -18,7 +18,7 @@ const int controlPin4 = 12;
 const int enablePin = 3;
 
 // Sets the default speed.
-int motorSpeed = 200;
+int motorSpeed = 500;
 
 void setup() {
 
@@ -42,8 +42,17 @@ void setup() {
 
 /* ---------- Functions ---------- */
 
-// Moves Jeff forwards.
-void forward(int *time) {
+void halt(void) {
+  
+        digitalWrite(controlPin1, LOW); 
+	digitalWrite(controlPin2, LOW);
+	digitalWrite(controlPin3, LOW);  
+	digitalWrite(controlPin4, LOW);
+  
+}
+
+// Moves Jeff left.
+void left(int *time) {
 
 	digitalWrite(controlPin1, HIGH); 
 	digitalWrite(controlPin2, LOW);
@@ -52,6 +61,37 @@ void forward(int *time) {
 	analogWrite(enablePin, motorSpeed);
 
 	delay(*time);
+        halt();
+
+}
+
+
+// Moves Jeff right.
+void right(int *time) {
+
+	digitalWrite(controlPin1, LOW);
+	digitalWrite(controlPin2, HIGH);
+	digitalWrite(controlPin3, LOW);  
+	digitalWrite(controlPin4, HIGH);   
+	analogWrite(enablePin, motorSpeed);
+
+	delay(*time);
+        halt();
+
+}
+
+
+// Moves Jeff forwards.
+void forward(int *time) {
+
+	digitalWrite(controlPin1, HIGH);
+	digitalWrite(controlPin2, LOW);
+	digitalWrite(controlPin3, LOW);  
+	digitalWrite(controlPin4, HIGH);   
+	analogWrite(enablePin, motorSpeed);
+
+	delay(*time);
+        halt();
 
 }
 
@@ -61,39 +101,12 @@ void backward(int *time) {
 
 	digitalWrite(controlPin1, LOW);
 	digitalWrite(controlPin2, HIGH);
-	digitalWrite(controlPin3, LOW);  
-	digitalWrite(controlPin4, HIGH);   
-	analogWrite(enablePin, motorSpeed);
-
-	delay(*time);
-
-}
-
-
-// Turns Jeff left.
-void left(int *time) {
-
-	digitalWrite(controlPin1, HIGH);
-	digitalWrite(controlPin2, LOW);
-	digitalWrite(controlPin3, LOW);  
-	digitalWrite(controlPin4, HIGH);   
-	analogWrite(enablePin, motorSpeed);
-
-	delay(*time);
-
-}
-
-
-// Turns Jeff right.
-void right(int *time) {
-
-	digitalWrite(controlPin1, LOW);
-	digitalWrite(controlPin2, HIGH);
 	digitalWrite(controlPin3, HIGH);  
 	digitalWrite(controlPin4, LOW);   
 	analogWrite(enablePin, motorSpeed);
 
 	delay(*time);
+        halt();
 
 }
 
@@ -135,11 +148,12 @@ void loop() {
 		request.trim();
 
 		// Retrieves the command and argument from the request.
-		String cmd[3] = request.substring(0, 2);
-		int arg = request.substring(4, 6).toInt();
+		String cmd = request.substring(0, 3);
+		int arg = request.substring(4, 5).toInt();
+                arg = 1000*arg;
 
 		// Deals with the command.
-		int success = response(cmd, &arg);
+		int success = response(&cmd, &arg);
 
 		// Returns response to user.
 		if (success) {
