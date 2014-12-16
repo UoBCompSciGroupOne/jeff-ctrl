@@ -2,6 +2,8 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<script type="text/javascript" src="zepto.min.js"></script>
+	<script type="text/javascript" src="command_script.js"></script>
 	<link rel="stylesheet" href="commands.css">
 	<title>Document</title>
 </head>
@@ -16,20 +18,28 @@
 	<div id="content">
 
 	<div id="command_list">
-		<div id="commands">
-		command1(x);<br>
-		command2(y);
-		</div>
+		<div id="commands"></div>
 	</div>
 
 	<div id="controls">
 		<div id="controls_inner">
-		<div>Forward</div>
-		<div>Backward</div>
-		<div>Left</div>
-		<div>Right</div>
+		<div id="forward_button" onclick="forward();">Forward</div>
+		<div id="backward_button" onclick="list_commands();">Backward</div>
+		<div id="left_button">Left</div>
+		<div id="right_button">Right</div>
+		<div id="argselection">
+		<select id="time">
+			<option value="1">1 sec</option>
+			<option value="2">2 secs</option>
+			<option value="3">3 secs</option>
+			<option value="4">4 secs</option>
+			<option value="4">5 secs</option>
+		</select>
+		</div>
 		</div>
 	</div>
+
+	<div id="test"></div>
 
 	</div>
 </body>
