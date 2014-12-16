@@ -1,0 +1,31 @@
+#navbar {
+	padding: 0.8em;
+	color: white;
+	font-family: HelveticaNeue, Verdana, Arial, sans-serif;
+	text-align: center;
+	background: #5CB8E6;
+}
+
+#content {
+	padding-top: 0.5em;
+	background: white;
+}
+
+#command_list {
+	width: 50%;
+	height: 200px;
+	float: left;
+	border: 2px solid #5CB8E6;
+}
+
+#commands {
+	padding: 0.5em;
+}
+
+#controls {
+	float: left;
+}
+
+#controls_inner {
+	padding: 0.5em;
+}
