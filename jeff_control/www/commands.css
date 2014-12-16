@@ -1,0 +1,47 @@
+#navbar {
+	padding: 0.8em;
+	color: white;
+	font-family: HelveticaNeue, Verdana, Arial, sans-serif;
+	text-align: center;
+	background: #5CB8E6;
+}
+
+#content {
+	padding-top: 0.5em;
+	font-family: HelveticaNeue, Verdana, Arial, sans-serif;
+	background: white;
+}
+
+#command_list {
+	width: 50%;
+	/*height: 200px;*/
+	float: left;
+	border: 2px solid #5CB8E6;
+}
+
+#commands {
+	padding: 0.5em;
+}
+
+#controls {
+	float: left;
+}
+
+#forward_button, #backward_button, #right_button, #left_button {
+	padding: 0.5em;
+	border: 0.1em solid #5CB8E6;
+}
+
+#forward_button:hover, #backward_button:hover, #right_button:hover, #left_button:hover {
+	color: #ffffff;
+	background: #5CB8E6;
+	cursor: pointer;
+}
+
+#argselection {
+	padding: 0.5em;
+}
+
+#controls_inner {
+	padding: 0.5em;
+}
