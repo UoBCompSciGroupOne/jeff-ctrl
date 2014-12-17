@@ -22,20 +22,42 @@ function move(direction) {
 // Performs a specific command.
 function handle_command (command, duration) {
 
-	$('#message').html('Moving ' + command + '...');
-
 	switch (command) {
 			case 'forward':
-				$('#message').load('/arduino/fwd/' + duration);
+				$.ajax({url: '/arduino/fwd/' + duration,
+					async: false,
+					success:
+						function (result) {
+							$('#message').html(result);
+						}
+				});
 				break;
 			case 'backward':
-				$('#message').load('/arduino/bwd/' + duration);
+				$.ajax({url: '/arduino/bwd/' + duration,
+					async: false,
+					success:
+						function (result) {
+							$('#message').html(result);
+						}
+				});
 				break;
 			case 'left':
-				$('#message').load('/arduino/lft/' + duration);
+				$.ajax({url: '/arduino/lft/' + duration,
+					async: false,
+					success:
+						function (result) {
+							$('#message').html(result);
+						}
+				});
 				break;
 			case 'right':
-				$('#message').load('/arduino/rgt/' + duration);
+				$.ajax({url: '/arduino/rgt/' + duration,
+					async: false,
+					success:
+						function (result) {
+							$('#message').html(result);
+						}
+				});
 				break;
 			default:
 				$('#message').html('Incorrect command.');
@@ -64,7 +86,7 @@ function run_commands() {
 
 // Lists commands stored in array.
 function list_commands() {
-	var test = document.getElementById('test');
+	var test = document.getElementById('array');
 	for (var i = 0; i < command_list.length; i++) {
 		test.innerHTML = test.innerHTML + command_list[i] + '<br>';
 	};
