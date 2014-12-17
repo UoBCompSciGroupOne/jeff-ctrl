@@ -11,23 +11,29 @@
 
 	<div id="navbar">
 		<div id="inner_nav">
-			Home Simple List Tutorials
+			<div class="navitem">Home</div>
+			<div class="navitem">Simple</div>
+			<div class="navitem">List</div>
+			<div class="navitem">Tutorials</div>
 		</div>
 	</div>
 
 	<div id="content">
 
 	<div id="command_list">
-		<div id="commands"></div>
+		<div id="commands"><u>Commands</u><br><br></div>
 	</div>
 
 	<div id="controls">
+		<!-- Movement buttons. -->
 		<div id="controls_inner">
-		<div id="forward_button" onclick="forward();">Forward</div>
-		<div id="backward_button" onclick="list_commands();">Backward</div>
-		<div id="left_button">Left</div>
-		<div id="right_button">Right</div>
-		<div id="argselection">
+		<div id="forward_button" class="dir_button" onclick="move('forward');">Forward</div>
+		<div id="left_button" class="dir_button" onclick="move('left');">Left</div>
+		<div id="right_button" class="dir_button" onclick="move('right');">Right</div>
+		<div id="backward_button" class="dir_button" onclick="move('backward');">Backward</div>
+
+		<!-- Duration of movement. -->
+		<div id="time_select">
 		<select id="time">
 			<option value="1">1 sec</option>
 			<option value="2">2 secs</option>
@@ -36,10 +42,15 @@
 			<option value="4">5 secs</option>
 		</select>
 		</div>
+		<div id="run" onclick="run_commands();">Run</div>
 		</div>
 	</div>
 
-	<div id="test"></div>
+	<div id="status">
+		<div id="status_inner">
+			STATUS: <div id="message"></div>
+		</div>
+	</div>
 
 	</div>
 </body>
