@@ -48,7 +48,7 @@
 	font-family: Courier, monospace;
 }
 
-#controls, #status {
+#controls, #status, #display_array {
 	float: left;
 	width: 49%;
 }
@@ -89,7 +89,7 @@
 	border: 2px solid #663399;
 }
 
-#controls_inner, #status_inner {
+#controls_inner, #status_inner, #array_inner {
 	border: 4px solid #909090;
 	margin: 0 1em;
 	padding: 0.5em;
@@ -114,6 +114,11 @@
 }
 
 #status_inner {
+	margin: 1em 1em;
+	color: white;
+}
+
+#array_inner {
 	margin: 1em 1em;
 	color: white;
 }
