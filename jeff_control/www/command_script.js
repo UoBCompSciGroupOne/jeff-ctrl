@@ -22,6 +22,8 @@ function move(direction) {
 // Performs a specific command.
 function handle_command (command, duration) {
 
+	$('#message').html('Moving ' + command + '...');
+
 	switch (command) {
 			case 'forward':
 				$('#message').load('/arduino/fwd/' + duration);
