@@ -27,8 +27,7 @@
 }
 
 #content {
-	width: 80%;
-	margin: 0 auto;
+	width: 90%;
 	padding-top: 1em;
 	font-family: HelveticaNeue, Verdana, Arial, sans-serif;
 	background: white;
@@ -38,7 +37,7 @@
 	width: 50%;
 	min-height: 50%;
 	float: left;
-	border: 4px solid #909090;
+	border: 4px solid #106060;
 	background: #339999;
 }
 
@@ -48,9 +47,71 @@
 	font-family: Courier, monospace;
 }
 
-#controls, #status, #display_array {
-	float: left;
+#control_box, #status, #display_array {
+	position: fixed;
 	width: 49%;
+	height: 130%;
+	right: 2%;
+	z-index: 2;
+}
+
+#control_box {
+	top: 10%;
+}
+
+#status {
+	top: 50%;
+}
+
+.control_type [type=radio] {
+	display: none;
+}
+
+.control_type label {
+	background: #106060;
+	color: white;
+	text-align: center;
+	border: 4px solid #106060;
+	float: left;
+	box-sizing: border-box;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.control_type label:hover {
+	background: #227777;
+}
+
+#control_functions label {
+	width: 33%;
+}
+
+#control_loops label {
+	width: 33%;
+}
+
+#control_constants label {
+	width: 34%;
+}
+
+[type=radio]:checked ~ label {
+	background: #339999;
+	border-bottom: 4px solid #339999;
+}
+
+[type=radio]:not(:checked) ~ label ~ .content {
+	z-index: -1;
+}
+
+[type=radio]:checked ~ label ~ .content {
+	z-index: 3;
+}
+
+#functions_set, #loops_set, #constants_set {
+	position: fixed;
+	top: 18%;
+	width: 40%;
+	right: 6.5%;
 }
 
 .dir_button {
@@ -90,10 +151,10 @@
 }
 
 #controls_inner, #status_inner, #array_inner {
-	border: 4px solid #909090;
 	margin: 0 1em;
-	padding: 0.5em;
 	background: #339999;
+	height: 25%;
+	border: 4px solid #106060;
 }
 
 #run {
