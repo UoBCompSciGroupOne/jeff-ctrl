@@ -1,37 +1,4 @@
-#navbar {
-	padding: 0.8em;
-	color: white;
-	font-family: HelveticaNeue, Verdana, Arial, sans-serif;
-	background: #5CB8E6;
-	margin: -0.5em -0.5em 0;
-}
-
-#inner_nav {
-	width: 80%;
-	margin: 0 auto;
-	height: 1em;
-	text-align: center;
-}
-
-.navitem {
-	margin-top: -0.2em;
-	float: left;
-	font-size: 16pt;
-	width: 25%;
-	cursor: pointer;
-}
-
-.navitem:hover {
-	background: white;
-	color: #5CB8E6;
-}
-
-#content {
-	width: 90%;
-	padding-top: 1em;
-	font-family: HelveticaNeue, Verdana, Arial, sans-serif;
-	background: white;
-}
+/* The stylesheet to accompany the batch commands page. */
 
 #command_list {
 	width: 50%;

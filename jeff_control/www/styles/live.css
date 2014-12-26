@@ -1,0 +1,33 @@
+/* The stylesheet to accompany the live commands page.  */
+
+#pinstatus {
+	padding: 1em;
+	color: #5CB8E6;
+	font-family: HelveticaNeue, Verdana, Arial, sans-serif;
+}
+
+.ctrlbutton {
+	padding: 20px 20px;
+	color: #5CB8E6;
+	border: 1px solid #5CB8E6;
+	border-radius: 10px;
+	background: #ffffff;
+}
+
+.ctrlbutton:hover {
+	color: #ffffff;
+	background: #5CB8E6;
+}
+
+.ctrlbutton:active {
+	background: #ff8833;
+}
+
+#ctrlbuttons {
+	padding: 1em;
+}
+
+#argselection {
+	padding: 1em;
+}
+

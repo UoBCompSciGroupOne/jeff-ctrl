@@ -1,0 +1,67 @@
+/* The base stylesheet for the site, should be included in every page. */
+
+/* ----- Viewport ----- */
+
+html, body {
+	margin: 0;
+	height: 100%;
+}
+
+
+/* ----- Navigation Bar ----- */
+
+#navbar {
+	width: 100%;
+	height: 4em;
+	color: white;
+	font-family: HelveticaNeue, Verdana, Arial, sans-serif;
+	background: #5CB8E6;
+}
+
+#inner_nav {
+	height: 100%;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.navitem {
+	padding: 0.72em 0;
+	float: left;
+	font-size: 1.5em;
+	width: 25%;
+	cursor: pointer;
+	text-align: center;
+
+}
+
+.navitem:hover {
+	background: white;
+	color: #5CB8E6;
+}
+
+#navbar a {
+	color: inherit;
+	text-decoration: none;
+}
+
+
+/* ----- Page Content ----- */
+
+#content {
+	width: 90%;
+	margin: 0 auto;
+	padding-top: 1em;
+	font-family: HelveticaNeue, Verdana, Arial, sans-serif;
+	background: white;
+}
+
+
+@media (min-width: 1067px) {
+
+	#content {
+		width: 960px;
+	}
+
+}
+
+
