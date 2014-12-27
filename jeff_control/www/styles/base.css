@@ -15,7 +15,7 @@ html, body {
 	height: 4em;
 	color: white;
 	font-family: HelveticaNeue, Verdana, Arial, sans-serif;
-	background: #5CB8E6;
+	background: #339999;
 }
 
 #inner_nav {
@@ -36,7 +36,7 @@ html, body {
 
 .navitem:hover {
 	background: white;
-	color: #5CB8E6;
+	color: #339999;
 }
 
 #navbar a {
@@ -63,17 +63,17 @@ html, body {
 #menu_content {
 	visibility: hidden;
 	background: white;
-	border: solid 1px #5CB8E6;
+	border: solid 1px #339999;
 	width: 94%;
 	margin: 0 3%;
 	z-index: 5;
 	position: absolute;
 	font-family: HelveticaNeue, Verdana, Arial, sans-serif;
-	color: #5CB8E6;
+	color: #339999;
 }
 
 .mobile_navitem {
-	border-bottom: solid 1px #5CB8E6;
+	border-bottom: solid 1px #339999;
 	height: 25%;
 	width: 100%;
 	float: left;

@@ -1,94 +1,86 @@
 /* The stylesheet to accompany the batch commands page. */
 
+/* ----- Command List ----- */
+
 #command_list {
-	width: 50%;
-	min-height: 50%;
+	width: 46%;
+	margin: 0 2%;
 	float: left;
-	border: 4px solid #106060;
 	background: #339999;
 }
 
 #commands {
 	padding: 0.5em;
 	color: white;
+	border: 4px solid #106060;
+	min-height: 50%;
 	font-family: Courier, monospace;
 }
 
-#control_box, #status, #display_array {
-	position: fixed;
-	width: 49%;
-	height: 130%;
-	right: 2%;
-	z-index: 2;
-}
+
+/* ----- Controls ----- */
 
 #control_box {
-	top: 10%;
-}
-
-#status {
-	top: 50%;
-}
-
-.control_type [type=radio] {
-	display: none;
-}
-
-.control_type label {
-	background: #106060;
-	color: white;
-	text-align: center;
-	border: 4px solid #106060;
+	/*position: fixed;*/
+	/*left: 50%;*/
+	width: 50%;
+	height: 25em;
 	float: left;
-	box-sizing: border-box;
-	overflow: hidden;
+}
+
+#controls_inner, #status_inner {
+	background: #339999;
+	border: 4px solid #106060;
+	color: white;
+}
+
+#status_inner {
+	padding: 1em;
+}
+
+#control_tabs {
+	background: #106060;
+	height: 2em;
+}
+
+.tab {
+	float: left;
+	width: 33.3%;
+	text-align: center;
+	padding-top: 0.4em;
+	height: 100%;
+	background: #106060;
+}
+
+#functions_tab {
+	background: #339999;
+}
+
+.tab:hover {
+	background: #339999!important;
 	cursor: pointer;
 }
 
-.control_type label:hover {
-	background: #227777;
+.control_type {
+	height: 20em;
 }
 
-#control_functions label {
-	width: 33%;
-}
 
-#control_loops label {
-	width: 33%;
-}
+/* ----- Control Functions ----- */
 
-#control_constants label {
-	width: 34%;
-}
-
-[type=radio]:checked ~ label {
-	background: #339999;
-	border-bottom: 4px solid #339999;
-}
-
-[type=radio]:not(:checked) ~ label ~ .content {
-	z-index: -1;
-}
-
-[type=radio]:checked ~ label ~ .content {
-	z-index: 3;
-}
-
-#functions_set, #loops_set, #constants_set {
-	position: fixed;
-	top: 18%;
-	width: 40%;
-	right: 6.5%;
+#control_functions {
+	display: initial;
 }
 
 .dir_button {
 	padding: 0.5em;
 	border: 2px solid white;
 	background: #663399;
-	width: 20%;
+	width: 30%;
+	min-width: 5em;
 	text-align: center;
 	color: white;
-	margin: 0 auto;
+	margin: 1em auto;
 }
 
 .dir_button:hover {
@@ -98,17 +90,9 @@
 	cursor: pointer;
 }
 
-#left_button {
-	float: left;
-}
-
-#right_button {
-	float: right;
-}
-
 #time_select {
 	padding: 0.5em;
-	width: 20%;
+	width: 30%;
 	margin: 0 auto;
 }
 
@@ -117,36 +101,49 @@
 	border: 2px solid #663399;
 }
 
-#controls_inner, #status_inner, #array_inner {
-	margin: 0 1em;
-	background: #339999;
-	height: 25%;
-	border: 4px solid #106060;
+
+/* ----- Control Constants ----- */
+
+#control_constants {
+	display: none;
 }
 
+#control_constants p {
+	padding: 1em;
+}
+
+
+/* ----- Control Loops ----- */
+
+#control_loops {
+	display: none;
+}
+
+#control_loops p {
+	padding: 1em;
+}
+
+
+/* ----- Run ----- */
+
 #run {
+	padding: 1em;
+	border: 4px solid #106060;
+	background: #339999;
+}
+
+#run_button {
 	padding: 0.5em;
 	border: 2px solid white;
 	background: #990000;
-	width: 20%;
 	text-align: center;
 	color: white;
 	margin: 0 auto;
 }
 
-#run:hover {
+#run_button:hover {
 	border-color: #990000;
 	color: #990000;
 	background: white;
 	cursor: pointer;
-}
-
-#status_inner {
-	margin: 1em 1em;
-	color: white;
-}
-
-#array_inner {
-	margin: 1em 1em;
-	color: white;
 }

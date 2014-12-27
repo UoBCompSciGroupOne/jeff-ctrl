@@ -2,21 +2,21 @@
 
 #pinstatus {
 	padding: 1em;
-	color: #5CB8E6;
+	color: #339999;
 	font-family: HelveticaNeue, Verdana, Arial, sans-serif;
 }
 
 .ctrlbutton {
 	padding: 20px 20px;
-	color: #5CB8E6;
-	border: 1px solid #5CB8E6;
+	color: #339999;
+	border: 1px solid #339999;
 	border-radius: 10px;
 	background: #ffffff;
 }
 
 .ctrlbutton:hover {
 	color: #ffffff;
-	background: #5CB8E6;
+	background: #339999;
 }
 
 .ctrlbutton:active {

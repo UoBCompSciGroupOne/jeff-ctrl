@@ -1,3 +1,5 @@
+/* ----- Arduino Communication ----- */
+
 // Array to store commands.
 var command_list = [];
 
@@ -86,8 +88,50 @@ function run_commands() {
 
 // Lists commands stored in array.
 function list_commands() {
+
 	var test = document.getElementById('array');
 	for (var i = 0; i < command_list.length; i++) {
 		test.innerHTML = test.innerHTML + command_list[i] + '<br>';
 	};
+	
+}
+
+
+/* ----- Page Styling ----- */
+
+// Swaps the control tab.
+function activate_tab(tab) {
+
+	// Activates tab for functions.
+	if (tab == 'functions_tab') {
+
+		$('#control_constants').css('display', 'none');
+		$('#constants_tab').css('background', '#106060');
+		$('#control_loops').css('display', 'none');
+		$('#loops_tab').css('background', '#106060');
+		$('#control_functions').css('display', 'initial');
+		$('#functions_tab').css('background', '#339999');
+
+	// Activates tab for constants.
+	} else if (tab == 'constants_tab') {
+
+		$('#control_constants').css('display', 'initial');
+		$('#constants_tab').css('background', '#339999');
+		$('#control_loops').css('display', 'none');
+		$('#loops_tab').css('background', '#106060');
+		$('#control_functions').css('display', 'none');
+		$('#functions_tab').css('background', '#106060');
+
+	// Activates tab for loops.
+	} else if (tab == 'loops_tab') {
+
+		$('#control_constants').css('display', 'none');
+		$('#constants_tab').css('background', '#106060');
+		$('#control_loops').css('display', 'initial');
+		$('#loops_tab').css('background', '#339999');
+		$('#control_functions').css('display', 'none');
+		$('#functions_tab').css('background', '#106060');
+
+	}
+
 }

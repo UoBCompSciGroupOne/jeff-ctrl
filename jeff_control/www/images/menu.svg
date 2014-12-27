@@ -14,7 +14,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.5 r10040"
-   sodipodi:docname="New document 1">
+   sodipodi:docname="menu.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -43,7 +43,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -52,13 +52,6 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-702.36218)">
-    <rect
-       style="fill:#5cb8e6;fill-opacity:1"
-       id="rect3053"
-       width="400"
-       height="350"
-       x="0"
-       y="702.36218" />
     <rect
        style="fill:#ffffff"
        id="rect2985"
@@ -75,6 +68,11 @@
        style="fill:#ffffff;fill-opacity:1"
        d="m 50,877.36218 0,-25 150,0 150,0 0,25 0,25 -150,0 -150,0 0,-25 z"
        id="path3825"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#339999;fill-opacity:1"
+       d="m 0,877.36219 0,-174.99999 200,0 200,0 0,174.99999 0,175.00001 -200,0 -200,0 0,-175.00001 z m 350.62611,100.20445 0,-25.40893 -150.62611,0 -150.626123,0 0,25.40893 0,25.40906 150.626123,0 150.62611,0 0,-25.40906 z m 0,-100.20445 0,-25.40899 -150.62611,0 -150.626123,0 0,25.40899 0,25.40899 150.626123,0 150.62611,0 0,-25.40899 z m 0,-100.2045 0,-25.40899 -150.62611,0 -150.626123,0 0,25.40899 0,25.409 150.626123,0 150.62611,0 0,-25.409 z"
+       id="path3754"
        inkscape:connector-curvature="0" />
   </g>
 </svg>

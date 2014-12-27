@@ -15,5 +15,5 @@ function drop_menu() {
 function close_menu() {
 	$('#menu_content').css('visibility', 'hidden');
 	$('#background').css('visibility', 'hidden');
-	$('#menu_wrapper').css('background', '#5CB8E6');
+	$('#menu_wrapper').css('background', '#339999');
 };
