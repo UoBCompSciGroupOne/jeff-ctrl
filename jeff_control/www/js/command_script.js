@@ -24,46 +24,35 @@ function move(direction) {
 // Performs a specific command.
 function handle_command (command, duration) {
 
+	var code = '';
+
+	// Sets url to send to arduino.
 	switch (command) {
-			case 'forward':
-				$.ajax({url: '/arduino/fwd/' + duration,
-					async: false,
-					success:
-						function (result) {
-							$('#message').html(result);
-						}
-				});
-				break;
-			case 'backward':
-				$.ajax({url: '/arduino/bwd/' + duration,
-					async: false,
-					success:
-						function (result) {
-							$('#message').html(result);
-						}
-				});
-				break;
-			case 'left':
-				$.ajax({url: '/arduino/lft/' + duration,
-					async: false,
-					success:
-						function (result) {
-							$('#message').html(result);
-						}
-				});
-				break;
-			case 'right':
-				$.ajax({url: '/arduino/rgt/' + duration,
-					async: false,
-					success:
-						function (result) {
-							$('#message').html(result);
-						}
-				});
-				break;
-			default:
-				$('#message').html('Incorrect command.');
-		}
+
+		case 'forward':
+			code = '/arduino/fwd/';
+			break;
+		case 'backward':
+			code = '/arduino/bwd/';
+			break;
+		case 'left':
+			code = '/arduino/lft/';
+			break;
+		case 'right':
+			code = '/arduino/rgt/';
+			break;
+		default:
+			$('#message').html('Incorrect command.');
+
+	}
+
+	// Sends command to arduino.
+	$.ajax({
+		url: code + duration,
+		async: false,
+		success:
+			function (result) { $('#message').html(result); }
+	});
 
 }
 
