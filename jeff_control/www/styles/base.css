@@ -106,6 +106,10 @@ html, body {
 	background: white;
 }
 
+p {
+	color: #555555;
+}
+
 
 /* ----- Media Queries ----- */
 
