@@ -1,0 +1,149 @@
+/* The stylesheet to accompany the batch commands page. */
+
+/* ----- Command List ----- */
+
+#command_list {
+	width: 46%;
+	margin: 0 2%;
+	float: left;
+	background: #339999;
+}
+
+#commands {
+	padding: 0.5em;
+	color: white;
+	border: 4px solid #106060;
+	min-height: 50%;
+	font-family: Courier, monospace;
+}
+
+
+/* ----- Controls ----- */
+
+#control_box {
+	/*position: fixed;*/
+	/*left: 50%;*/
+	width: 50%;
+	height: 25em;
+	float: left;
+}
+
+#controls_inner, #status_inner {
+	background: #339999;
+	border: 4px solid #106060;
+	color: white;
+}
+
+#status_inner {
+	padding: 1em;
+}
+
+#control_tabs {
+	background: #106060;
+	height: 2em;
+}
+
+.tab {
+	float: left;
+	width: 33.3%;
+	text-align: center;
+	padding-top: 0.4em;
+	height: 100%;
+	background: #106060;
+}
+
+#functions_tab {
+	background: #339999;
+}
+
+.tab:hover {
+	background: #339999!important;
+	cursor: pointer;
+}
+
+.control_type {
+	height: 20em;
+}
+
+
+/* ----- Control Functions ----- */
+
+#control_functions {
+	display: initial;
+}
+
+.dir_button {
+	padding: 0.5em;
+	border: 2px solid white;
+	background: #663399;
+	width: 30%;
+	min-width: 5em;
+	text-align: center;
+	color: white;
+	margin: 1em auto;
+}
+
+.dir_button:hover {
+	border-color: #663399;
+	color: #663399;
+	background: white;
+	cursor: pointer;
+}
+
+#time_select {
+	padding: 0.5em;
+	width: 30%;
+	margin: 0 auto;
+}
+
+#time {
+	width: 100%;
+	border: 2px solid #663399;
+}
+
+
+/* ----- Control Constants ----- */
+
+#control_constants {
+	display: none;
+}
+
+#control_constants p {
+	padding: 1em;
+}
+
+
+/* ----- Control Loops ----- */
+
+#control_loops {
+	display: none;
+}
+
+#control_loops p {
+	padding: 1em;
+}
+
+
+/* ----- Run ----- */
+
+#run {
+	padding: 1em;
+	border: 4px solid #106060;
+	background: #339999;
+}
+
+#run_button {
+	padding: 0.5em;
+	border: 2px solid white;
+	background: #990000;
+	text-align: center;
+	color: white;
+	margin: 0 auto;
+}
+
+#run_button:hover {
+	border-color: #990000;
+	color: #990000;
+	background: white;
+	cursor: pointer;
+}

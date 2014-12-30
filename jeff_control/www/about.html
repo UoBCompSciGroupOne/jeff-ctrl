@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>About Jeff</title>
+
+	<link rel="stylesheet" href="styles/base.css">
+	<link rel="stylesheet" href="styles/about.css">
+
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<script type="text/javascript" src="js/navbar.js"></script>
+</head>
+<body>
+	
+	<div id="navbar"></div>
+	<div id="menu_content"></div>
+	<div id="background" onclick="close_menu();"></div>
+
+	<div id="content">
+
+		<h1>About Jeff</h1>
+
+		<p>Jeff is a Programmable Robot. He may look complicated, but once you get to know him hopefully you'll come to realise that he's actually quite simple. He's made up of relatively few components: some wheels, a base, some motors, a couple of batteries, some simple electronics, and a silicon brain.</p>
+
+		<h2>Jeff's Brain</h2>
+
+		<p>Let's start with Jeff's brain, since this may be the bit that seems the most complicated. The brain is the blue board in the middle. It's called an Arduino. There are only three things on it that you need to know about to understand how Jeff works.</p>
+
+		<h3>The 'Dumb' Part</h3>
+
+		<p>The first is the little black square behind the USB port. This is an Arduino processor, you can think of it as the 'dumb' part of Jeff's brain. It receives messages and turns them into electrical impulses that make Jeff's motors move. It's a bit like the little part of your brain that tells your muscles what to do when you decide that you want to move.</p>
+
+		<h3>The 'Clever' Part</h3>
+
+		<p>The second important part of Jeff's brain is the large silver rectangle behind the ethernet port. This is what you might call the 'clever' part of Jeff. It's actually an entire computer, like whatever you are using to read these words, but all contained in a tiny chip running an operating system called Linux. You can think of this as the clever part of your brain that decides what to do. When you want Jeff to do something, you explain what you want to this part of him, and it sends commands to the 'dumb' part to make him do it.</p>
+
+		<h3>The Spine</h3>
+
+		<p>When your brain wants to send command to your body, it does it via the spine. Tiny electrical impulses travel down the back of your neck and into the spine, which then dissipates them around your body to the various muscles that need to move. Well, Jeff has a spine too. It's made up of the thin black rectangles that run up and down the sides of the Arduino. These are called pins, into which a huge number of components can be plugged, allowing Jeff's brain to control them. Currently they are being used to connect up the motors Jeff uses to turn.</p>
+
+		<h2>Putting It All Together</h2>
+
+		<p>When you send an instruction to Jeff, it is processed by the 'clever' part of Jeff's brain, the Linux chip. This then sends information to the 'dumb' part of Jeff's brain, the Arduino chip, about what needs to be done. This chip then sends small electrical signals through Jeff's spine, the pins. Certain pins then activate, depending on the signal, and pass the message on, through the motor controller, to the motors. The motors spin, Jeff's wheels turn, and he moves. That's it!</p>
+
+	</div>
+
+	<div id="footer"></div>
+
+</body>
+</html>
