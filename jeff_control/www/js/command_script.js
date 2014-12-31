@@ -11,10 +11,6 @@ function move(direction) {
 	// Gets the duration of move.
 	var timeList = document.getElementById('time');
 	var duration = timeList.options[timeList.selectedIndex].value;
-	
-	/* NO LONGER FUNCTIONAL.
-	command_list.push([direction, duration]);*/
-
 
 	// Changes new_list_item div to that specified by button press. Changes hidden attributes.
 	var new_item = document.getElementById('new_div_space_inner').getElementsByClassName('list_item');

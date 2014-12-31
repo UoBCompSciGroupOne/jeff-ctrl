@@ -87,6 +87,7 @@
 																(must be valid; forward(1) chosen arbitrarily). -->
 					<div class="hidden_cmd">forward</div>		<!-- Hidden attribute to remember command type. -->
 					<div class="hidden_amount">1</div>			<!-- Hidden attribute to remember command value. -->
+					<div class="delete_button" onclick="delete_item(this.parentNode);">&#10006</div>
 				</div>
 			</div>
 		</div>
@@ -94,7 +95,7 @@
 		<div id="run">
 			<div id="run_button" onclick="run_commands();">Run</div>
 		</div>
-
+		
 	</div>
 
 	</div>

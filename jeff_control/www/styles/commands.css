@@ -20,13 +20,39 @@
 .list_item {
 	cursor: move;		/* Not a pretty cursor, but makes the drag/drop more obvious for now.
 						Safari gets angry anyway and makes a no-entry-sign cursor. */
-	padding: 4px;
+	padding: 9px;
 	background: #106060;
 	border-radius: 14px;
 	box-shadow: 4px 4px 3px #208080;
 	margin: 8px;
-	text-indent: 20px;
 	font-family: Courier, monospace;
+	height: 18px;
+	vertical-align: middle;
+	min-width: 150px;
+}
+
+.display_cmd {
+	float: left;
+	text-indent: 20px;
+}
+
+.delete_button {
+	float: right;
+	border: 2px solid white;
+	background: #106060;
+	text-align: center;
+	border-radius: 10px;
+	width: 18px;
+	height: 18px;
+	line-height: 18px;
+	font-size: 80%;
+	display: none;
+}
+
+.delete_button:hover {
+	color: #106060;
+	background: white;
+	cursor: pointer;
 }
 
 
