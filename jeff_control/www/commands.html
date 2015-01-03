@@ -10,6 +10,7 @@
 	<script type="text/javascript" src="js/zepto.min.js"></script>
 	<script type="text/javascript" src="js/command_script.js"></script>
 	<script type="text/javascript" src="js/navbar.js"></script>
+	<script type="text/javascript" src="js/sortable.min.js"></script>
 
 </head>
 
@@ -22,7 +23,7 @@
 	<div id="content">
 
 	<div id="command_list">
-		<div id="commands"><u>Commands</u><br><br></div>
+		<div id="commands"></div>
 	</div>
 
 	<div id="control_box">
@@ -77,12 +78,31 @@
 			</div>
 		</div>
 
+		<!-- Newly created div goes here. Can drag and drop into list (creates clone on drag) -->
+		<div id="new_div_space">
+			<div id="new_div_space_inner">
+				New Command:
+				<div class="list_item">
+					<div class="handle">::</div>				<!-- Handle for list item -->
+					<div class="display_cmd">forward(1);</div>	<!-- Default for new div
+																(must be valid; forward(1) chosen arbitrarily). -->
+					<div class="hidden_cmd">forward</div>		<!-- Hidden attribute to remember command type. -->
+					<div class="hidden_amount">1</div>			<!-- Hidden attribute to remember command value. -->
+					<div class="delete_button" onclick="delete_item(this.parentNode);">&#10006</div>
+				</div>
+			</div>
+		</div>
+
 		<div id="run">
 			<div id="run_button" onclick="run_commands();">Run</div>
 		</div>
-	
+		
 	</div>
 
 	</div>
+	
+	<!-- For some reason this didn't work when put beginning of the document. -->
+	<script type="text/javascript" src="js/drag_drop.js"></script>
+
 </body>
 </html>

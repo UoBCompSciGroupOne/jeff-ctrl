@@ -3,7 +3,7 @@
 /* ----- Command List ----- */
 
 #command_list {
-	width: 46%;
+	width: 45%;
 	margin: 0 2%;
 	float: left;
 	background: #339999;
@@ -11,30 +11,77 @@
 
 #commands {
 	padding: 0.5em;
+	padding-bottom: 5em;	/* Always space to add new list item at bottom. Otherwise awkward. */
 	color: white;
 	border: 4px solid #106060;
 	min-height: 50%;
-	font-family: Courier, monospace;
 }
+
+.list_item {
+	padding: 9px;
+	background: #106060;
+	border-radius: 14px;
+	box-shadow: 4px 4px 3px #208080;
+	margin: 8px;
+	font-family: Courier, monospace;
+	height: 18px;
+	vertical-align: middle;
+	min-width: 150px;
+}
+
+.handle {
+    cursor: move;
+    cursor: -webkit-grabbing;
+	float: left;
+}
+
+.display_cmd {
+	float: left;
+	text-indent: 20px;
+}
+
+.delete_button {
+	float: right;
+	border: 2px solid white;
+	background: #106060;
+	text-align: center;
+	border-radius: 10px;
+	width: 18px;
+	height: 18px;
+	line-height: 18px;
+	font-size: 80%;
+	display: none;
+}
+
+.delete_button:hover {
+	color: #106060;
+	background: white;
+	cursor: pointer;
+}
+
+
+.hidden_cmd, .hidden_amount {
+	display: none;
+}		/* Hidden attributes. Used only when scanning into array. */
 
 
 /* ----- Controls ----- */
 
 #control_box {
-	/*position: fixed;*/
-	/*left: 50%;*/
-	width: 50%;
+/*	position: fixed;*/
+/*	left: 50%;*/
+	width: 45%;
 	height: 25em;
 	float: left;
 }
 
-#controls_inner, #status_inner {
+#controls_inner, #status_inner, #new_div_space_inner {
 	background: #339999;
 	border: 4px solid #106060;
 	color: white;
 }
 
-#status_inner {
+#status_inner, #new_div_space_inner {
 	padding: 1em;
 }
 
@@ -44,12 +91,18 @@
 }
 
 .tab {
-	float: left;
-	width: 33.3%;
 	text-align: center;
 	padding-top: 0.4em;
 	height: 100%;
 	background: #106060;
+}
+
+/* loops_tab excluded and will auto-fill remaining area.
+	Patches gap seen in most browsers. IE still makes a
+	tiny gap but God only knows why.*/
+#functions_tab, #constants_tab {
+	float: left;
+	width: 33.3%;
 }
 
 #functions_tab {
@@ -57,7 +110,7 @@
 }
 
 .tab:hover {
-	background: #339999!important;
+	background: #339999;
 	cursor: pointer;
 }
 
