@@ -1,0 +1,13 @@
+/* Stylesheet to go alongside the programming concepts page. */
+
+.codeblock {
+	background: #339999;
+	font-family: Menlo, Courier, monospace;
+	color: white;
+	padding: 1em;
+}
+
+.inline_code {
+	font-family: Menlo, Courier, monospace;
+	color: #339999;
+}

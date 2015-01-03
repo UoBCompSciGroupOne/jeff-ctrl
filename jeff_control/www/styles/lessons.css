@@ -1,0 +1,28 @@
+/*  The stylesheet for the lessons index page. */
+
+a {
+	text-decoration: none;
+}
+
+.lesson_link {
+	padding: 1em 1em 2.5em 2em;
+	background: #339999;
+	margin-bottom: 1em;
+	border: 0.2em solid white;
+	color: white;
+}
+
+.lesson_link h2 {
+	color: white;
+}
+
+.lesson_link:hover {
+	cursor: pointer;
+	background: white;
+	border: 0.2em solid #339999;
+	color: #339999;
+}
+
+.lesson_link:hover h2 {
+	color: #339999;
+}

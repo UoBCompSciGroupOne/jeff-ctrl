@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Programming Concepts</title>
+
+	<link rel="stylesheet" href="styles/base.css">
+	<link rel="stylesheet" href="styles/about.css">
+	<link rel="stylesheet" href="styles/programming_concepts.css">
+
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<script type="text/javascript" src="js/navbar.js"></script>
+</head>
+<body>
+	
+	<div id="navbar"></div>
+	<div id="menu_content"></div>
+	<div id="background" onclick="close_menu();"></div>
+
+	<div id="content">
+
+		<h1>Programming Concepts</h1>
+
+		<h3>Variables</h3>
+
+		<div class="codeblock">
+		int a = 1;<br><br>
+		char b = 'f';<br>
+		</div>
+
+		<p>Variables are place holders that store one piece of data each. They are given a name by the programmer so that each variable can be referred to easily. In the above example, <span class="inline_code">a</span> is the name the programmer gave to this variable and the number value of 1 has been stored inside it. When the program now finds the letter <span class="inline_code">a</span>, it will read the value 1.</p>
+
+		<h3>Conditional Statements</h3>
+
+		<div class="codeblock">
+		if (a == b) {<br><br>
+		&nbsp;&nbsp;Do something;<br><br>
+		} else {<br><br>
+		&nbsp;&nbsp;Do something else;<br><br>
+		}<br>
+		</div>
+
+		<p>Conditional statements are used when a programmer wants to check a condition before deciding what the program does next. A light controlled by a computer would use a conditional statement. If the lightswitch is clicked on, then the light should turn on. If the lightswitch is off, the light should turn off. In the above example, the program asks if <span class="inline_code">a</span> is the same as <span class="inline_code">b</span>. If it is, it executes the code inside the first set of curly brackets. If <span class="inline_code">a</span> is not equal to <span class="inline_code">b</span>, it executes the code inside the second set of brackets.</p>
+
+		<h3>Iterative Constructs</h3>
+
+		<div class="codeblock">
+		while (i == 0) {<br><br>
+		&nbsp;&nbsp;Do something;<br><br>
+		}<br>
+		</div>
+
+		<p>Loops (also known as iterative constructs) repeat a block of code for a pre-specified number of times or unitl a condition has been fulfilled. The above example executes the block of code inside the curly brackets while <span class="inline_code">i</span> has the value '0' stored inside it. When that value changes, the program stops repeating that block of code.</p>
+
+	</div>
+
+	<div id="footer"></div>
+
+</body>
+</html>
