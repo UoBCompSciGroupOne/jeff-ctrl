@@ -6,6 +6,7 @@ Sortable.create(list_commands, {
 		name: 'sorting',
 		put: ["newitem"]					// Add to list from newitem
 	},
+	handle: '.handle',
 	animation: 150,							// Movement speed when rearranging
 	sort: true,								// Can reorder within list
 	
@@ -25,6 +26,7 @@ Sortable.create(new_commands, {
 		name: 'newitem',
 		pull: 'clone'						// Drag does not remove original div
 	},
+	handle: '.handle',
 	animation: 500,
 
 });
