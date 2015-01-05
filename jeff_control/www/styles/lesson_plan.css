@@ -1,0 +1,21 @@
+/* The stylesheet for the tables on the lesson plan page. */
+
+.lesson_table {
+	border: 1px solid #555555;
+	margin-top: 25px;
+	position: relative;
+	color: #555555;
+}
+
+#introduction_table {
+	margin-left: 125px;
+}
+
+#assessment_table {
+	margin-left: 25px;
+}
+
+td  {
+	border: 1px solid #555555;
+	height: 50px;
+}
