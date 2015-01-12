@@ -113,8 +113,16 @@ function run_commands() {
 	command_list.length = 0;
 
 	/* Create array from list */
-	create_array();
-	
+	var list = document.getElementById("command_list").getElementsByClassName("list_item");
+   var length = list.length;
+	create_array(list, 0, length);        // List of divs; Start position; End position (for recursive)
+
+   
+	/*	[--------------------------------  TEST  --------------------------------] 
+		Alert array contents: */
+	window.alert(command_list);
+   
+   
 	var command, duration;
 
 	// Loops through list of commands.
@@ -129,22 +137,52 @@ function run_commands() {
 }
 
 // Creates array using ordered list of divs
-function create_array() {
+function create_array(list, start, end) {
 	
-	var list = document.getElementById("command_list").getElementsByClassName("list_item");
 	var command, amount;
 	
-	for(var i = 0; i < list.length; i++) {
+	for(var i = start; i < end; i++) {
+      
 		command = list[i].getElementsByClassName('hidden_cmd')[0].innerHTML;
 		amount = list[i].getElementsByClassName('hidden_amount')[0].innerHTML;
-		command_list.push([command, amount]);
+      
+      if(command == "for") {
+         
+         loop_content = list[i].getElementsByClassName("list_item");
+         var length = loop_content.length;
+         
+         for(var j = 0; j < amount; j++) {
+            create_array(list, i + 1, i + length + 1);
+         }
+         
+         i = i + length;
+      }
+      
+      else {
+         command_list.push([command, amount]);
+      }
+      
 	};
 	
-	/*	[--------------------------------  TEST  --------------------------------] 
-		Alert array contents: */
-	window.alert(command_list);
 }
 
+// Add for loop to array
+function create_array_loop(list, start, amount) {
+   
+   loop_content = list[start].getElementsByClassName("list_item");
+   var length = loop_content.length;
+   var num_loops = list[start].getElementsByClassName('hidden_amount')[0].innerHTML;
+   
+   for(var j = 0; j < num_loops; j++) {
+      for(var k = 0; k < length; k++) {
+         command = list[k+start+1].getElementsByClassName('hidden_cmd')[0].innerHTML;
+         amount = list[k+start+1].getElementsByClassName('hidden_amount')[0].innerHTML;
+         command_list.push([command, amount]);
+      }
+   }
+   
+   return start + length;
+}
 
 /* ----- Page Styling ----- */
 
