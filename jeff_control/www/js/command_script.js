@@ -119,31 +119,31 @@ function activate_tab(tab) {
 	if (tab == 'functions_tab') {
 
 		$('#control_constants').css('display', 'none');
-		$('#constants_tab').css('background', '#106060');
+		document.getElementById('constants_tab').className = "tab_inactive";
 		$('#control_loops').css('display', 'none');
-		$('#loops_tab').css('background', '#106060');
+		document.getElementById('loops_tab').className = "tab_inactive";
 		$('#control_functions').css('display', 'initial');
-		$('#functions_tab').css('background', '#339999');
+		document.getElementById('functions_tab').className = "tab_active";
 
 	// Activates tab for constants.
 	} else if (tab == 'constants_tab') {
 
 		$('#control_constants').css('display', 'initial');
-		$('#constants_tab').css('background', '#339999');
+		document.getElementById('constants_tab').className = "tab_active";
 		$('#control_loops').css('display', 'none');
-		$('#loops_tab').css('background', '#106060');
+		document.getElementById('loops_tab').className = "tab_inactive";
 		$('#control_functions').css('display', 'none');
-		$('#functions_tab').css('background', '#106060');
+		document.getElementById('functions_tab').className = "tab_inactive";
 
 	// Activates tab for loops.
 	} else if (tab == 'loops_tab') {
 
 		$('#control_constants').css('display', 'none');
-		$('#constants_tab').css('background', '#106060');
+		document.getElementById('constants_tab').className = "tab_inactive";
 		$('#control_loops').css('display', 'initial');
-		$('#loops_tab').css('background', '#339999');
+		document.getElementById('loops_tab').className = "tab_active";
 		$('#control_functions').css('display', 'none');
-		$('#functions_tab').css('background', '#106060');
+		document.getElementById('functions_tab').className = "tab_inactive";
 
 	}
 
