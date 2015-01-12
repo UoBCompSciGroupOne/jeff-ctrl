@@ -90,11 +90,23 @@
 	height: 2em;
 }
 
-.tab {
+.tab_active, .tab_inactive {
 	text-align: center;
 	padding-top: 0.4em;
 	height: 100%;
+}
+
+.tab_active {
+	background: #339999;
+}
+
+.tab_inactive {
 	background: #106060;
+}
+
+.tab_inactive:hover {
+	background: #208080;
+	cursor: pointer;
 }
 
 /* loops_tab excluded and will auto-fill remaining area.
@@ -103,15 +115,6 @@
 #functions_tab, #constants_tab {
 	float: left;
 	width: 33.3%;
-}
-
-#functions_tab {
-	background: #339999;
-}
-
-.tab:hover {
-	background: #339999;
-	cursor: pointer;
 }
 
 .control_type {
