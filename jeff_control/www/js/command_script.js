@@ -6,7 +6,6 @@ var command_list = [];
 
 // Adds move to page and to command list array.
 function move(direction) {
-	
 
 	// Gets the duration of move.
 	var timeList = document.getElementById('time');
@@ -20,17 +19,54 @@ function move(direction) {
 		var new_item_display = new_item[i].getElementsByClassName('display_cmd');
 		var new_item_cmd = new_item[i].getElementsByClassName('hidden_cmd');
 		var new_item_amount = new_item[i].getElementsByClassName('hidden_amount');
+      var loop_contents = new_item[i].getElementsByClassName('loop_contents_active');
+      var loop_end = new_item[i].getElementsByClassName('loop_end_active');
 	
 		new_item_display[0].innerHTML = direction + '(' + duration + ');';
 		new_item_cmd[0].innerHTML = direction;
 		new_item_amount[0].innerHTML = duration;
+      if(loop_end.length) {         // also loop_contents
+         loop_contents[0].className = 'loop_contents_inactive';
+         loop_end[0].className = 'loop_end_inactive';
+      }
+	}	/* This loop is annoying but necessary. Dragging always creates a clone, and if the dragged object is not
+		dropped into the list, it returns. This overlaps with previous, and so all must be changed on button click.
+		It is a bug in the library code. There is likely a simple, cleaner alternative (deleting the dragged
+		element if not dropped into list), but this works for now. */
+
+}
+
+// Adds move to page and to command list array.
+function loop(type) {
+
+	// Gets the number of loops.
+	var loopnumberList = document.getElementById('loop_number');
+	var loopnumber = loopnumberList.options[loopnumberList.selectedIndex].value;
+
+	// Changes new_list_item div to that specified by button press. Changes hidden attributes.
+	var new_item = document.getElementById('new_div_space_inner').getElementsByClassName('list_item');
+	var length = new_item.length;			// Should be 1. However this is not always the case (see below).
+
+	for(var i=0; i < length; i++) {
+		var new_item_display = new_item[i].getElementsByClassName('display_cmd');
+		var new_item_cmd = new_item[i].getElementsByClassName('hidden_cmd');
+		var new_item_amount = new_item[i].getElementsByClassName('hidden_amount');
+      var loop_contents = new_item[i].getElementsByClassName('loop_contents_inactive');
+      var loop_end = new_item[i].getElementsByClassName('loop_end_inactive');
+
+	
+		new_item_display[0].innerHTML = 'loop from 1 to ' + loopnumber + ':';
+		new_item_cmd[0].innerHTML = type;
+		new_item_amount[0].innerHTML = loopnumber;
+      if(loop_end.length) {       // also loop_contents
+         loop_contents[0].className = 'loop_contents_active';
+         loop_end[0].className = 'loop_end_active';
+      }
 	}	/* This loop is annoying but necessary. Dragging always creates a clone, and if the dragged object is not
 		dropped into the list, it returns. This overlaps with previous, and so all must be changed on button click.
 		It is a bug in the library code. There is likely a simple, cleaner alternative (deleting the dragged
 		element if not dropped into list), but this works for now. */
 	
-	
-
 }
 
 

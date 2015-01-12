@@ -17,33 +17,30 @@
 	min-height: 50%;
 }
 
-.list_item {
+.list_item{
 	padding: 9px;
 	background: #106060;
 	border-radius: 14px;
 	box-shadow: 4px 4px 3px #208080;
 	margin: 8px;
 	font-family: Courier, monospace;
-	height: 18px;
+	min-height: 18px;
 	vertical-align: middle;
 	min-width: 150px;
 }
 
 .handle {
-    cursor: move;
-    cursor: -webkit-grabbing;
+   cursor: move;
+   cursor: -webkit-grabbing;
 	float: left;
 }
 
-.display_cmd {
-	float: left;
+.display_cmd, .loop_end_active  {
 	text-indent: 20px;
 }
 
 .delete_button {
 	float: right;
-	border: 2px solid white;
-	background: #106060;
 	text-align: center;
 	border-radius: 10px;
 	width: 18px;
@@ -59,10 +56,24 @@
 	cursor: pointer;
 }
 
-
 .hidden_cmd, .hidden_amount {
 	display: none;
 }		/* Hidden attributes. Used only when scanning into array. */
+
+.loop_contents_active {
+	padding-bottom: 1em;
+   padding-top: 0.5em;
+	background: #339999;
+   margin: 4px;
+}
+
+.loop_contents_inactive {
+   display: none;
+}
+
+.loop_end_inactive {
+   display: none;
+}
 
 
 /* ----- Controls ----- */
@@ -83,6 +94,10 @@
 
 #status_inner, #new_div_space_inner {
 	padding: 1em;
+}
+
+#new_div_space_inner {
+   height: 110px;
 }
 
 #control_tabs {
@@ -146,16 +161,16 @@
 	cursor: pointer;
 }
 
-#time_select {
+#time_select, #loop_number_select {
 	padding: 0.5em;
 	width: 30%;
 	margin: 0 auto;
 }
 
-#time {
+#time, #loop_number {
 	width: 100%;
 	border: 2px solid #663399;
-}
+   }
 
 
 /* ----- Control Constants ----- */
