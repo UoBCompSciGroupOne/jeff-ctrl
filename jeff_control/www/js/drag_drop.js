@@ -18,7 +18,10 @@ Sortable.create(list_commands, {
       var nested_list = evt.item.getElementsByClassName("loop_contents_active");
       if(nested_list.length) {               // If addition is a loop
          Sortable.create(nested_list[0], {   // Create new, nested list within loop
-            group: 'sorting',
+            group: {
+               name: 'sorting',
+               put: ["newitem"]					// Add to list from newitem
+            },
             handle: '.handle',
             animation: 150,
             sort: true,
