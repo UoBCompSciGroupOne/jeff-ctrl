@@ -66,8 +66,20 @@
 			
 			<!-- Loops Tab -->
 			<div id="control_loops" class="control_type">
-					<!-- Loops buttons. -->
-					<p> Loops buttons will go here </p>
+         
+				<!-- Loop buttons. -->
+				<div id="for_button" class="dir_button" onclick="loop('for');">For Loop</div>
+
+				<!-- Duration of movement. -->
+				<div id="loop_number_select">
+					<select id="loop_number">
+						<option value="2">2 times</option>
+						<option value="3">3 times</option>
+						<option value="4">4 times</option>
+						<option value="5">5 times</option>
+					</select>
+				</div>
+
 			</div>
 			
 		</div>
@@ -84,11 +96,13 @@
 				New Command:
 				<div class="list_item">
 					<div class="handle">::</div>				<!-- Handle for list item -->
+					<div class="delete_button" onclick="delete_item(this.parentNode);">&#10006 </div>
 					<div class="display_cmd">forward(1);</div>	<!-- Default for new div
 																(must be valid; forward(1) chosen arbitrarily). -->
 					<div class="hidden_cmd">forward</div>		<!-- Hidden attribute to remember command type. -->
 					<div class="hidden_amount">1</div>			<!-- Hidden attribute to remember command value. -->
-					<div class="delete_button" onclick="delete_item(this.parentNode);">&#10006</div>
+               <div class="loop_contents_inactive"></div>
+               <div class="loop_end_inactive">loop END;</div>
 				</div>
 			</div>
 		</div>
