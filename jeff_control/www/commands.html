@@ -37,57 +37,60 @@
 		</div>
 
 			<!-- Controls Tab -->
-			<div id="control_functions" class="control_type">
+			<div id="control_functions" class="control_active">
 
+            <div class="button_position_ctrl"></div>
+         
 				<!-- Movement buttons. -->
-				<div id="forward_button" class="dir_button" onclick="move('forward');">Forward</div>
-				<div id="backward_button" class="dir_button" onclick="move('backward');">Backward</div>
-				<div id="left_button" class="dir_button" onclick="move('left');">Left</div>
-				<div id="right_button" class="dir_button" onclick="move('right');">Right</div>
+				<div id="left_button" class="button_inactive" onclick="add_varnum('left');">Left</div>
+				<div id="right_button" class="button_inactive" onclick="add_varnum('right');">Right</div>
+				<div id="forward_button" class="button_inactive" onclick="add_varnum('forward');">Forward</div>
+				<div id="backward_button" class="button_inactive" onclick="add_varnum('backward');">Backward</div>
 
-				<!-- Duration of movement. -->
-				<div id="time_select">
-					<select id="time">
-						<option value="1">1 sec</option>
-						<option value="2">2 secs</option>
-						<option value="3">3 secs</option>
-						<option value="4">4 secs</option>
-						<option value="5">5 secs</option>
-					</select>
+            <div class="button_position_ctrl"></div>
+
+				<!-- Duration of command. -->
+				<div id="time_select" class="number_input_inactive">
+               <form onsubmit="return add_div()">
+                  <input id="time" class="div_amt" type="number" min="0" max="100" step="0.0001" value="1"></input>
+                  <p>seconds</p>
+                  <input class="submit_button" type="submit" value="Add">
+               </form>
 				</div>
 
+            <div class="button_position_ctrl"></div>
+            
 			</div>
 			
 			<!-- Constants Tab -->
-			<div id="control_constants" class="control_type">
+			<div id="control_constants" class="control_inactive">
 					<!-- Constants buttons. -->
 					<p> Constants buttons will go here </p>
 			</div>
 			
 			<!-- Loops Tab -->
-			<div id="control_loops" class="control_type">
+			<div id="control_loops" class="control_inactive">
+         
+            <div class="button_position_ctrl"></div>
          
 				<!-- Loop buttons. -->
-				<div id="for_button" class="dir_button" onclick="loop('for');">For Loop</div>
+				<div id="for_button" class="button_inactive" onclick="add_varnum('for');">For Loop</div>
 
-				<!-- Duration of movement. -->
-				<div id="loop_number_select">
-					<select id="loop_number">
-						<option value="2">2 times</option>
-						<option value="3">3 times</option>
-						<option value="4">4 times</option>
-						<option value="5">5 times</option>
-					</select>
+            <div class="button_position_ctrl"></div>
+            
+				<!-- Duration of command. -->
+				<div id="loop_number_select" class="number_input_inactive">
+               <form onsubmit="return add_div()">
+                  <input id="loop_number" class="div_amt" type="number" min="2" max="100" step="1" value="2"></input>
+                  <p>loops</p>
+                  <input class="submit_button" type="submit" value="Add">
+               </form>
 				</div>
 
+            <div class="button_position_ctrl"></div>
+            
 			</div>
 			
-		</div>
-
-		<div id="status">
-			<div id="status_inner">
-				STATUS: <div id="message"></div>
-			</div>
 		</div>
 
 		<!-- Newly created div goes here. Can drag and drop into list (creates clone on drag) -->
@@ -104,6 +107,12 @@
                <div class="loop_contents_inactive"></div>
                <div class="loop_end_inactive">loop END;</div>
 				</div>
+			</div>
+		</div>
+      
+		<div id="status">
+			<div id="status_inner">
+				STATUS: <div id="message"></div>
 			</div>
 		</div>
 

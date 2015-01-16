@@ -9,7 +9,11 @@ Sortable.create(list_commands, {
 	handle: '.handle',
 	animation: 150,							// Movement speed when rearranging
 	sort: true,								// Can reorder within list
-	
+   scroll: true,
+   scrollSensitivity: 80,
+   scrollSpeed: 10,
+   
+   
 	/* UPON ADDITION TO LIST.
 	Display delete button [must not delete original list item].*/
     onAdd: function (evt) {					// When new element is dropped into list
@@ -39,7 +43,6 @@ Sortable.create(new_commands, {
 	},
 	handle: '.handle',
 	animation: 500,
-
 });
 
 
