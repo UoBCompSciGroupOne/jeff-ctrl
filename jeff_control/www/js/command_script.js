@@ -247,18 +247,18 @@ function activate_tab(tab) {
 	// Activates tab for functions.
 	if (tab == 'functions_tab') {
 
-      document.getElementById('control_constants').className = "control_inactive";
-		document.getElementById('constants_tab').className = "tab_inactive";
+      document.getElementById('control_variables').className = "control_inactive";
+		document.getElementById('variables_tab').className = "tab_inactive";
       document.getElementById('control_loops').className = "control_inactive";
 		document.getElementById('loops_tab').className = "tab_inactive";
       document.getElementById('control_functions').className = "control_active";
 		document.getElementById('functions_tab').className = "tab_active";
 
-	// Activates tab for constants.
-	} else if (tab == 'constants_tab') {
+	// Activates tab for variables.
+	} else if (tab == 'variables_tab') {
 
-      document.getElementById('control_constants').className = "control_active";
-		document.getElementById('constants_tab').className = "tab_active";
+      document.getElementById('control_variables').className = "control_active";
+		document.getElementById('variables_tab').className = "tab_active";
       document.getElementById('control_loops').className = "control_inactive";
 		document.getElementById('loops_tab').className = "tab_inactive";
       document.getElementById('control_functions').className = "control_inactive";
@@ -267,8 +267,8 @@ function activate_tab(tab) {
 	// Activates tab for loops.
 	} else if (tab == 'loops_tab') {
 
-      document.getElementById('control_constants').className = "control_inactive";
-		document.getElementById('constants_tab').className = "tab_inactive";
+      document.getElementById('control_variables').className = "control_inactive";
+		document.getElementById('variables_tab').className = "tab_inactive";
       document.getElementById('control_loops').className = "control_active";
 		document.getElementById('loops_tab').className = "tab_active";
       document.getElementById('control_functions').className = "control_inactive";

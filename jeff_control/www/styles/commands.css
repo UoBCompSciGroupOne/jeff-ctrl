@@ -125,7 +125,7 @@
 	cursor: pointer;
 }
 
-#functions_tab, #constants_tab {
+#functions_tab, #variables_tab {
 	float: left;
 	width: 33.3%;
 }
@@ -224,10 +224,10 @@
    
 
 
-/* ----- Control Constants ----- */
+/* ----- Control Variables ----- */
 
 
-#control_constants p {
+#control_variables p {
 	padding: 1em;
 }
 
