@@ -149,11 +149,11 @@ void loop() {
 
 		// Retrieves the command and argument from the request.
 		String cmd = request.substring(0, 3);
-		int arg = request.substring(4, 7);
+		String arg_string = request.substring(4, 7);
 		
-		arg.toFloat();
-        arg = 1000.0*arg;
-		arg.toInt();
+		float arg_float = arg_string.toFloat();
+                arg_float = 1000.0*arg_float;
+		int arg = (int) arg_float;
 		
 
 		// Deals with the command.
