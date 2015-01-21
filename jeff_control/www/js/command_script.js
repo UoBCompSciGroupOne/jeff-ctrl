@@ -86,7 +86,7 @@ function move(command, amount) {
 	// Changes new_list_item div to that specified by button press. Changes hidden attributes.
 	var new_item = document.getElementById('new_div_space_inner').getElementsByClassName('list_item');
 	var length = new_item.length;			// Should be 1. However this is not always the case (see below).
-   var new_item_display, new_item_cmd, new_item_amount, loop_contents, loop_end;
+	var new_item_display, new_item_cmd, new_item_amount, loop_contents, loop_end;
    
 	for(var i=0; i < length; i++) {
 		new_item_display = new_item[i].getElementsByClassName('display_cmd');
@@ -173,9 +173,9 @@ function run_commands() {
 	create_array(list, 0, length);        // List of divs; Start position; End position (for recursive)
 
    
-	/*	[--------------------------------  TEST  --------------------------------] 
+/*		[-------------  TESTING PURPOSES ONLY  -------------] 
 		Alert array contents: */
-	window.alert(command_list);
+/*	window.alert(command_list);			*/
    
    
 	var command, duration;

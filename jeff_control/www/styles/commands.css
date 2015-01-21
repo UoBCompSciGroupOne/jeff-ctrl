@@ -137,7 +137,7 @@
 }
 
 .control_active {
-	height: 17em;
+	height: 20em;
 }
 
 .control_inactive {
@@ -156,7 +156,7 @@
 	min-width: 5em;
 	text-align: center;
 	color: white;
-	margin: 1em auto;
+	margin: 0.2em auto;
 }
 
 .button_inactive:hover {
@@ -173,29 +173,17 @@
 	min-width: 5em;
 	background: white;
 	cursor: pointer;
-	margin: 1em auto;
+	margin: 0.2em auto;
 	text-align: center;
-}
-
-#left_button {
-   float: left;
-   margin-left: 1em;
-   margin-top: 11%;
-}
-
-#right_button {
-   float: right;
-   margin-right: 1em;
-   margin-top: 11%;
 }
 
 
 #time, #loop_number {
 	border: 2px solid #663399;
-   width: 25%;
-   float: left;
-   margin-left: 25%;
-   text-indent: 1em;
+	width: 25%;
+	float: left;
+	margin-left: 25%;
+	text-indent: 1em;
 }
    
    
@@ -255,4 +243,30 @@
 	color: #990000;
 	background: white;
 	cursor: pointer;
+}
+
+
+/* Hides mobile content for larger screens */
+@media (min-width: 840px) {
+
+	#left_button {
+		float: left;
+		margin-left: 1em;
+		margin-top: 11%;
+	}
+
+	#right_button {
+		float: right;
+		margin-right: 1em;
+		margin-top: 11%;
+	}
+	
+	.control_active {
+	height: 17em;
+	}
+	
+	.button_active, .button_inactive {
+		margin: 1em auto;
+	}
+
 }
