@@ -149,8 +149,12 @@ void loop() {
 
 		// Retrieves the command and argument from the request.
 		String cmd = request.substring(0, 3);
-		int arg = request.substring(4, 5).toInt();
-                arg = 1000*arg;
+		int arg = request.substring(4, 7);
+		
+		arg.toFloat();
+        arg = 1000.0*arg;
+		arg.toInt();
+		
 
 		// Deals with the command.
 		int success = response(&cmd, &arg);
