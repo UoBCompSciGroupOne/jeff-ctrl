@@ -49,9 +49,12 @@ function add_div() {
    var command_raw = document.getElementsByClassName('button_active');
    var command;
    
-   if(amount == "") {
+   /* Safari is bad */
+   if(amount == "" || amount < 0 || amount > 100) {
       return false;
    }
+   
+   
    
    switch (command_raw[0].id) {
       case "forward_button":
@@ -67,6 +70,9 @@ function add_div() {
          command = "right";
          break;
       case "for_button":
+         if(amount % 1 != 0 || amount < 2) {
+			 return false;
+		 }
          command = "for";
          break;
 		default:
