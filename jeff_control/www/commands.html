@@ -10,7 +10,7 @@
 	<script type="text/javascript" src="js/zepto.min.js"></script>
 	<script type="text/javascript" src="js/command_script.js"></script>
 	<script type="text/javascript" src="js/navbar.js"></script>
-	<script type="text/javascript" src="js/sortable.min.js"></script>
+	<script type="text/javascript" src="js/sortable.min.js"></script>				<!-- "Sortable" library -->
 
 </head>
 
@@ -22,91 +22,114 @@
 
 	<div id="content">
 
+	<!-- List of commands to send to Jeff -->
 	<div id="command_list">
 		<div id="commands"></div>
 	</div>
 
+	<!-- Control section (for adding new commands) -->
 	<div id="control_box">
 
 		<div id="controls_inner">
 
-		<div id="control_tabs">
-			<div id="functions_tab" class="tab_active" onclick="activate_tab(this.id)">Functions</div>
-			<div id="constants_tab" class="tab_inactive" onclick="activate_tab(this.id)">Constants</div>
-			<div id="loops_tab" class="tab_inactive" onclick="activate_tab(this.id)">Loops</div>
-		</div>
+			<!-- Tabs for different types of command (functions, variables, loops) -->
+			<div id="control_tabs">
+				<div id="functions_tab" class="tab_active" onclick="activate_tab(this.id)">Functions</div>
+				<div id="variables_tab" class="tab_inactive" onclick="activate_tab(this.id)">Variables</div>
+				<div id="loops_tab" class="tab_inactive" onclick="activate_tab(this.id)">Loops</div>
+			</div>
 
 			<!-- Controls Tab -->
-			<div id="control_functions" class="control_type">
+			<div id="control_functions" class="control_active">
 
+				<div class="button_position_ctrl"></div>
+         
 				<!-- Movement buttons. -->
-				<div id="forward_button" class="dir_button" onclick="move('forward');">Forward</div>
-				<div id="backward_button" class="dir_button" onclick="move('backward');">Backward</div>
-				<div id="left_button" class="dir_button" onclick="move('left');">Left</div>
-				<div id="right_button" class="dir_button" onclick="move('right');">Right</div>
+				<div id="left_button" class="button_inactive" onclick="add_varnum('left');">Left</div>
+				<div id="right_button" class="button_inactive" onclick="add_varnum('right');">Right</div>
+				<div id="forward_button" class="button_inactive" onclick="add_varnum('forward');">Forward</div>
+				<div id="backward_button" class="button_inactive" onclick="add_varnum('backward');">Backward</div>
 
-				<!-- Duration of movement. -->
-				<div id="time_select">
-					<select id="time">
-						<option value="1">1 sec</option>
-						<option value="2">2 secs</option>
-						<option value="3">3 secs</option>
-						<option value="4">4 secs</option>
-						<option value="5">5 secs</option>
-					</select>
+				<div class="button_position_ctrl"></div>
+
+				<!-- Duration of command. -->
+				<div id="time_select" class="number_input_inactive">
+					<form onsubmit="return add_div()">
+						<!-- HTML5 form verification for correct input type. (Safari still requires JS checks) -->
+						<input id="time" class="div_amt" type="number" min="0" max="100" step="0.001" value="1"></input>
+							<p>seconds</p>
+						<input class="submit_button" type="submit" value="Add">
+					</form>
 				</div>
 
+				<div class="button_position_ctrl"></div>
+            
 			</div>
 			
-			<!-- Constants Tab -->
-			<div id="control_constants" class="control_type">
-					<!-- Constants buttons. -->
-					<p> Constants buttons will go here </p>
+			<!-- Variables Tab -->
+			<div id="control_variables" class="control_inactive">
+					<!-- Variables buttons. -->
+					<p> Variables buttons will go here </p>
 			</div>
 			
 			<!-- Loops Tab -->
-			<div id="control_loops" class="control_type">
-         
-				<!-- Loop buttons. -->
-				<div id="for_button" class="dir_button" onclick="loop('for');">For Loop</div>
+			<div id="control_loops" class="control_inactive">
 
-				<!-- Duration of movement. -->
-				<div id="loop_number_select">
-					<select id="loop_number">
-						<option value="2">2 times</option>
-						<option value="3">3 times</option>
-						<option value="4">4 times</option>
-						<option value="5">5 times</option>
-					</select>
-				</div>
+				<div class="button_position_ctrl"></div>
 
+					<!-- Loop buttons. -->
+					<div id="for_button" class="button_inactive" onclick="add_varnum('for');">For Loop</div>
+
+					<div class="button_position_ctrl"></div>
+            
+					<!-- Duration of command. -->
+					<div id="loop_number_select" class="number_input_inactive">
+						<form onsubmit="return add_div()">
+							<!-- HTML5 form verification for correct input type. (Safari still requires JS checks) -->
+							<input id="loop_number" class="div_amt" type="number" min="2" max="100" step="1" value="2"></input>
+							<p>loops</p>
+							<input class="submit_button" type="submit" value="Add">
+						</form>
+					</div>
+
+				<div class="button_position_ctrl"></div>
+            
 			</div>
 			
 		</div>
 
+		<!-- New list element goes here -->
+		<div id="new_div_space">
+			<div id="new_div_space_inner">
+				New Command:
+				<!-- List element to be changed -->
+				<div class="list_item">
+					<!-- Handle for list item -->
+					<div class="handle">::</div>
+					<!-- Delete button (hidden until added to command list) -->
+					<div class="delete_button" onclick="delete_item(this.parentNode);">&#10006 </div>
+					<!-- Default for new div(must be valid; forward(1) chosen arbitrarily) -->
+					<div class="display_cmd">forward(1);</div>
+					<!-- Hidden attribute to remember command type -->
+					<div class="hidden_cmd">forward</div>
+					<!-- Hidden attribute to remember command value -->
+					<div class="hidden_amount">1</div>
+					<!-- Sub-list (active for loops only) -->
+					<div class="loop_contents_inactive"></div>
+					<!-- Loop end (active for loops only) -->
+					<div class="loop_end_inactive">loop END;</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Jeff status feedback -->
 		<div id="status">
 			<div id="status_inner">
 				STATUS: <div id="message"></div>
 			</div>
 		</div>
 
-		<!-- Newly created div goes here. Can drag and drop into list (creates clone on drag) -->
-		<div id="new_div_space">
-			<div id="new_div_space_inner">
-				New Command:
-				<div class="list_item">
-					<div class="handle">::</div>				<!-- Handle for list item -->
-					<div class="delete_button" onclick="delete_item(this.parentNode);">&#10006 </div>
-					<div class="display_cmd">forward(1);</div>	<!-- Default for new div
-																(must be valid; forward(1) chosen arbitrarily). -->
-					<div class="hidden_cmd">forward</div>		<!-- Hidden attribute to remember command type. -->
-					<div class="hidden_amount">1</div>			<!-- Hidden attribute to remember command value. -->
-               <div class="loop_contents_inactive"></div>
-               <div class="loop_end_inactive">loop END;</div>
-				</div>
-			</div>
-		</div>
-
+		<!-- Compile array; send commands to Yun -->
 		<div id="run">
 			<div id="run_button" onclick="run_commands();">Run</div>
 		</div>
@@ -115,7 +138,7 @@
 
 	</div>
 	
-	<!-- For some reason this didn't work when put beginning of the document. -->
+	<!-- Sortable functions -->
 	<script type="text/javascript" src="js/drag_drop.js"></script>
 
 </body>

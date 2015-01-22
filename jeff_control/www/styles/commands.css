@@ -20,10 +20,10 @@
 .list_item{
 	padding: 9px 0 9px 0;
 	background: #106060;
-   border: 4px solid #106060;
+	border: 4px solid #106060;
 	border-radius: 14px;
 	box-shadow: 4px 4px 3px #208080;
-	margin: 8px;
+	margin: 14px 8px 8px 8px;
 	font-family: Courier, monospace;
 	min-height: 18px;
 	vertical-align: middle;
@@ -62,8 +62,8 @@
 }		/* Hidden attributes. Used only when scanning into array. */
 
 .loop_contents_active {
-	padding-bottom: 1em;
-   padding-top: 0.5em;
+	padding-bottom: 1.5em;
+	padding-top: 1em;
 	background: #339999;
 }
 
@@ -81,6 +81,7 @@
 #control_box {
 /*	position: fixed;*/
 /*	left: 50%;*/
+/*  Works for computer browsers but not tablet. Removed. */
 	width: 45%;
 	height: 25em;
 	float: left;
@@ -97,7 +98,7 @@
 }
 
 #new_div_space_inner {
-   height: 110px;
+   height: auto;
 }
 
 #control_tabs {
@@ -109,6 +110,7 @@
 	text-align: center;
 	padding-top: 0.4em;
 	height: 100%;
+	border-radius: 10px 10px 0 0;
 }
 
 .tab_active {
@@ -124,75 +126,100 @@
 	cursor: pointer;
 }
 
-/* loops_tab excluded and will auto-fill remaining area.
-	Patches gap seen in most browsers. IE still makes a
-	tiny gap but God only knows why.*/
-#functions_tab, #constants_tab {
+#functions_tab, #variables_tab {
 	float: left;
 	width: 33.3%;
 }
 
-.control_type {
+/* Fills remaining area with no overflow. Otherwise fills left
+   in a way that is visible with border-radius property. */
+#loops_tab {
+   overflow: hidden;
+}
+
+.control_active {
 	height: 20em;
 }
 
-
-/* ----- Control Functions ----- */
-
-#control_functions {
-	display: initial;
+.control_inactive {
+   display: none;
 }
 
-.dir_button {
+
+/* ----- Control Functions, Loops ----- */
+
+
+.button_inactive {
 	padding: 0.5em;
 	border: 2px solid white;
 	background: #663399;
-	width: 30%;
+	width: 20%;
 	min-width: 5em;
 	text-align: center;
 	color: white;
-	margin: 1em auto;
+	margin: 0.2em auto;
 }
 
-.dir_button:hover {
-	border-color: #663399;
+.button_inactive:hover {
 	color: #663399;
 	background: white;
 	cursor: pointer;
 }
 
-#time_select, #loop_number_select {
+.button_active {
 	padding: 0.5em;
-	width: 30%;
-	margin: 0 auto;
+	border: 2px solid #663399;
+	color: #663399;
+	width: 20%;
+	min-width: 5em;
+	background: white;
+	cursor: pointer;
+	margin: 0.2em auto;
+	text-align: center;
 }
+
 
 #time, #loop_number {
-	width: 100%;
 	border: 2px solid #663399;
-   }
-
-
-/* ----- Control Constants ----- */
-
-#control_constants {
-	display: none;
+	width: 25%;
+	float: left;
+	margin-left: 25%;
+	text-indent: 1em;
+}
+   
+   
+#time_select p, #loop_number_select p {
+   text-indent: 5%;
 }
 
-#control_constants p {
+.submit_button {
+   float: left;
+   margin-left: 40%;
+   width: 20%;
+}
+
+.button_position_ctrl {
+   height: 10%;
+}
+
+.number_input_active {
+   display: visible;
+}
+
+.number_input_inactive {
+   display: none;
+}
+   
+   
+
+
+/* ----- Control Variables ----- */
+
+
+#control_variables p {
 	padding: 1em;
 }
 
-
-/* ----- Control Loops ----- */
-
-#control_loops {
-	display: none;
-}
-
-#control_loops p {
-	padding: 1em;
-}
 
 
 /* ----- Run ----- */
@@ -217,4 +244,30 @@
 	color: #990000;
 	background: white;
 	cursor: pointer;
+}
+
+
+/* Hides mobile content for larger screens */
+@media (min-width: 840px) {
+
+	#left_button {
+		float: left;
+		margin-left: 1em;
+		margin-top: 11%;
+	}
+
+	#right_button {
+		float: right;
+		margin-right: 1em;
+		margin-top: 11%;
+	}
+	
+	.control_active {
+		height: 17em;
+	}
+	
+	.button_active, .button_inactive {
+		margin: 1em auto;
+	}
+
 }
