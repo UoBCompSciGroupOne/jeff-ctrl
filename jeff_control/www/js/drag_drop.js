@@ -1,6 +1,8 @@
+// Handles the drag and drop functionality for the command page, needed for Sortable.
 
 // Drag and Drop List
 var list_commands = document.getElementById("commands");
+
 Sortable.create(list_commands, {
 	group: {
 		name: 'sorting',
@@ -34,6 +36,7 @@ Sortable.create(list_commands, {
 		};
 	},
 });
+
 
 // Drag and Drop New Item
 var new_commands = document.getElementById("new_div_space_inner");
